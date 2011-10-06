@@ -1,0 +1,12 @@
+mc-nbt-edit by sakisds <sakisds@gmx.com>
+Uses the NBT library by Thomas Woolford <woolford.thomas@gmail.com>
+Based on the NBT specifications by Markus Persson
+
+
+This script is editing the level.dat files inside Minecraft's maps to change some settings.
+
+So far it can only do toogle two settings:
+-Game Mode: Determinates if the map is for Creative or Survival mode
+-Hardcore: Enables or disabled hardcore mode for this map
+
+For usage please use the --help option.
