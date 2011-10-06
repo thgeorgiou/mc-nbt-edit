@@ -12,8 +12,8 @@ def help(): #Prints help
 		print "Value: 1 for true, 0 for false. For GameType it's 1 for Creative and 0 for Survival.\n\n\nOptions:"
 		print "--print: Prints the contents of the file and exits\n--help: Displays this message."
 		exit()
-def complain(): #Complains on wrong arguments.
-	print "Invalid arguments. Try --help."
+def complain(): #Complains on wrong options.
+	print "Invalid options. Try --help."
 	exit()
 
 print len(sys.argv)
