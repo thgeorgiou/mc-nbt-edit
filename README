@@ -2,11 +2,23 @@ mc-nbt-edit by sakisds <sakisds@gmx.com>
 Uses the NBT library by Thomas Woolford <woolford.thomas@gmail.com>
 Based on the NBT specifications by Markus Persson
 
+This script is capable of creating and editing tags inside NBT structures, mainly used by Minecraft.
 
-This script is editing the level.dat files inside Minecraft's maps to change some settings.
+I created this to edit the level.dat files from minecraft saves but it should work with any other nbt files too. Here is a list of level.dat settings it can modify:
 
-So far it can only do toogle two settings:
--Game Mode: Determinates if the map is for Creative or Survival mode
--Hardcore: Enables or disabled hardcore mode for this map
+Data.Time (long): Stores the current "time of day" in minecraft. Value should be between 0 and 24000. Here are some reference points:
+-0 = start of daytime
+-12000 = start of sunset
+-13800 = start of nighttime
+-22200 = start of sunrise
+-24000 = daytime again.
+Data.hardcore (byte): Hardcore mode off and on. Possible values are 0(false) and 1(true).
+Data.MapFeatures (byte): Whether structures (dungeons, mob villages, etc.) will be generated. Possible values are 0(false) and 1(true).
+Data.GameType (int): Whether in survival (0) or in creative (1) mode.
+Data.rainTime (int): Time until the next weather change. Value can be anything, though to change the weather you probably want to set this to something like 1.
+Data.thunderTime (int): Same as above, but for thunders.
+Data.LevelName (string): Specifies the name of the level.
+Data.Player.health (int): Amount of health the player has. Legal values are between 0 and 20 but it can be set higher.
 
-For usage please use the --help option.
+You can find more values and their descriptions here:
+http://www.minecraftwiki.net/wiki/Alpha_Level_Format
