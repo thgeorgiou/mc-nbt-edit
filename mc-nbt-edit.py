@@ -1,5 +1,5 @@
-#!/usr/bin/python
-#mc-nbt-edit 0.1 by sakisds <sakisds@gmx.com>
+#!/usr/bin/env python
+#mc-nbt-edit 0.2 by sakisds <sakisds@gmx.com>
 #Uses the NBT library by Thomas Woolford <woolford.thomas@gmail.com>
 #Based on the NBT specifications by Markus Persson
 
@@ -7,10 +7,9 @@ from nbt import *
 import sys
 
 def help(): #Prints help
-		print "mc-nbt-edit by sakisds <sakisds@gmx.com>\n\nUsage: mc-nbt-edit file tag datatype value\n"
-		print "File: level.dat, usually inside .minecraft/saves/[mapname]\nTag: Tag to edit, possible values are GameType and hardcore"
-		print "Value: 1 for true, 0 for false. For GameType it's 1 for Creative and 0 for Survival.\n\n\nOptions:"
-		print "--print: Prints the contents of the file and exits\n--help: Displays this message."
+		print "mc-nbt-edit 0.2 by sakisds <sakisds@gmx.com>\n\nUsage: mc-nbt-edit file tag datatype value\n"
+		print "Possible datatypes: byte, int, float, long, string, short, double.\n Lists are not yet supported.\n\n\nOptions:"
+		print "--help: Displays this message."
 		exit()
 
 def complain(): #Complains on wrong options.
