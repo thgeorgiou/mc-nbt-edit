@@ -4,12 +4,13 @@
 #Based on the NBT specifications by Markus Persson
 
 from nbt import *
-import sys
+import sys, os
 
 def help(): #Prints help
 		print "mc-nbt-edit 0.2 by sakisds <sakisds@gmx.com>\n\nUsage: mc-nbt-edit file tag datatype value\n"
 		print "Possible datatypes: byte, int, float, long, string, short, double.\n Lists are not yet supported.\n\n\nOptions:"
-		print "--help: Displays this message."
+		print "--help: Displays this message and then exit."
+		print "--print: Prints tree inside the given NBT file and then exit."
 		exit()
 
 def complain(): #Complains on wrong options.
@@ -32,7 +33,7 @@ def savefile(nbt):
 
 def settag(name, dtype, value): #Sets wanted tag
 	if dtype == "byte":
-		tag= TAG_Byte(name)
+		tag = TAG_Byte(name)
 		tag.value = int(value)
 	elif dtype == "int":
 		tag = TAG_Int(name)
@@ -58,7 +59,11 @@ def settag(name, dtype, value): #Sets wanted tag
 	tag.name = name
 	return tag
 
+def printtag(tag):
+	print tag.name+":"+tag
+
 #Decide about printing help or complaining
+printing = False
 if len(sys.argv) == 1 :
 	help()
 elif len(sys.argv) == 2:
@@ -67,10 +72,18 @@ elif len(sys.argv) == 2:
 	else:
 		complain()
 elif len(sys.argv) == 3:
-	complain()
+	if sys.argv[2] == "--print":
+		printing = True
+	else:
+		complain()
 
 #Load file
 nbt = loadfile(sys.argv[1])
+
+#Print if needed
+if printing:
+	print nbt.pretty_tree()
+	exit()
 
 #Parse tag
 path = sys.argv[2].split('.')
