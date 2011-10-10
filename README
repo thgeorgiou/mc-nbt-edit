@@ -3,6 +3,7 @@ Uses the NBT library by Thomas Woolford <woolford.thomas@gmail.com>
 Based on the NBT specifications by Markus Persson
 
 This script is capable of creating and editing tags inside NBT structures, mainly used by Minecraft.
+For usage please use the --help option.
 
 I created this to edit the level.dat files from minecraft saves but it should work with any other nbt files too. Here is a list of level.dat settings it can modify:
 
