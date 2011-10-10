@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#mc-nbt-edit 0.2 by sakisds <sakisds@gmx.com>
+#mc-nbt-edit 0.3 by sakisds <sakisds@gmx.com>
 #Uses the NBT library by Thomas Woolford <woolford.thomas@gmail.com>
 #Based on the NBT specifications by Markus Persson
 
