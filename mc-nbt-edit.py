@@ -3,7 +3,8 @@
 #Uses the NBT library by Thomas Woolford <woolford.thomas@gmail.com>
 #Based on the NBT specifications by Markus Persson
 
-from nbt import *
+from nbt import nbt
+from nbt.nbt import *
 import sys, os
 
 def help(): #Prints help
