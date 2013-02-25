@@ -20,7 +20,7 @@ def complain(): #Complains on wrong options.
 
 def loadfile(filepath): #Loads the NBT file
 	try:
-		return NBTFile(filepath,'rb')
+		return nbt.NBTFile(filepath,'rb')
 	except Exception:
 		print "Could not open file "+sys.argv[1]
 		exit(1)
