@@ -5,14 +5,14 @@
 
 from nbt import nbt
 from nbt.nbt import *
-import sys, os
+import sys, os, json
 
 def help(): #Prints help
-		print "mc-nbt-edit 0.2 by sakisds <sakisds@gmx.com>\n\nUsage: mc-nbt-edit file tag datatype value\n"
-		print "Possible datatypes: byte, int, float, long, string, short, double.\n Lists are not yet supported.\n\n\nOptions:"
-		print "--help: Displays this message and then exit."
-		print "--print: Prints tree inside the given NBT file and then exit."
-		exit()
+	print "mc-nbt-edit 0.2 by sakisds <sakisds@gmx.com>\n\nUsage: mc-nbt-edit file tag datatype value\n"
+	print "Possible datatypes: byte, int, float, long, string, short, double.\n Lists are not yet supported.\n\n\nOptions:"
+	print "--help: Displays this message and then exit."
+	print "--print: Prints tree inside the given NBT file and then exit."
+	exit()
 
 def complain(): #Complains on wrong options.
 	print "Invalid options. Try --help."
@@ -77,13 +77,26 @@ elif len(sys.argv) == 3:
 		printing = True
 	else:
 		complain()
+elif len(sys.argv) == 4:
+	if sys.argv[3] == "--print":
+		printing = True
+	else:
+		complain()
 
 #Load file
 nbt = loadfile(sys.argv[1])
 
 #Print if needed
 if printing:
-	print nbt.pretty_tree()
+	if len(sys.argv) == 3:
+		print nbt.pretty_tree()
+	elif len(sys.argv) == 4:
+		path = sys.argv[2].split('.')
+		item = nbt
+		while len(path) > 0:
+			item = item.__getitem__(path[0])
+			path.pop(0)
+		print item.pretty_tree()
 	exit()
 
 #Parse tag
