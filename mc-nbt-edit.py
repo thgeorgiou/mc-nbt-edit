@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#mc-nbt-edit 0.3 by sakisds <sakisds@gmx.com>
+#mc-nbt-edit 0.4 by sakisds <sakisds@gmx.com>
 #Uses the NBT library by Thomas Woolford <woolford.thomas@gmail.com>
 #Based on the NBT specifications by Markus Persson
 
@@ -8,7 +8,7 @@ from nbt.nbt import *
 import sys, os, json
 
 def help(): #Prints help
-	print "mc-nbt-edit 0.2 by sakisds <sakisds@gmx.com>\n\nUsage: mc-nbt-edit file tag datatype value\n"
+	print "mc-nbt-edit 0.4 by sakisds <sakisds@gmx.com>\n\nUsage: mc-nbt-edit file tag datatype value\n"
 	print "Possible datatypes: byte, int, float, long, string, short, double.\n Lists are not yet supported.\n\n\nOptions:"
 	print "--help: Displays this message and then exit."
 	print "--print: Prints tree inside the given NBT file and then exit."
