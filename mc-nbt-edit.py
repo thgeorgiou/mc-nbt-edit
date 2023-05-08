@@ -80,7 +80,7 @@ elif len(sys.argv) == 3:
 elif len(sys.argv) == 4:
 	if sys.argv[3] == "--print":
 		printing = True
-	else:
+	elif sys.argv[3] != "delete":
 		complain()
 
 #Load file
@@ -108,13 +108,19 @@ if len(path) == 1:
 	nbt.__setitem__(path[0], tag)
 elif len(path) == 2:
 	compound = nbt.__getitem__(path[0])
-	tag = settag(path[1], sys.argv[3], sys.argv[4])
-	compound.__setitem__(path[1], tag)
+	if sys.argv[3] == "delete":
+		compound.__delitem__(path[1])
+	else:
+		tag = settag(path[1], sys.argv[3], sys.argv[4])
+		compound.__setitem__(path[1], tag)
 elif len(path) == 3:
 	compound = nbt.__getitem__(path[0])
 	subcompound = compound.__getitem__(path[1])
-	tag = settag(path[2], sys.argv[3], sys.argv[4])
-	subcompound.__setitem__(path[2], tag)
+	if sys.argv[3] == "delete":
+		subcompound.__delitem__(path[2])
+	else:
+		tag = settag(path[2], sys.argv[3], sys.argv[4])
+		subcompound.__setitem__(path[2], tag)
 
 #Save changes to disk
 savefile(nbt)
